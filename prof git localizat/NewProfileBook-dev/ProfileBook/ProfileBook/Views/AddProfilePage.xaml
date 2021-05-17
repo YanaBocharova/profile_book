@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:ProfileBook.Resources"
+             x:Class="ProfileBook.Views.AddProfilePage"
+             Title="{x:Static resource:Resource.AddProfilePageTitle}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_save.png" 
+                     Command="{Binding SaveProfileTapCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <ImageButton BackgroundColor="Transparent" 
+                         HeightRequest="160"
+                         Source="{Binding Image}"
+                         Command="{Binding PickImageCommand}" />
+
+            <Entry Placeholder="{x:Static resource:Resource.NickName}"
+                   Text="{Binding NickName}" />
+            <Entry Placeholder="{x:Static resource:Resource.Name}" 
+                   Text="{Binding Name}" />
+            <Editor Placeholder="{x:Static resource:Resource.Description}" 
+                    HeightRequest="160" 
+                    BackgroundColor="#D3D3D3"
+                    Text="{Binding Description}" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

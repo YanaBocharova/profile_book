@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="ProfileBook.View.MainListView"
+             xmlns:bh="clr-namespace:ProfileBook.Behaviors"
+             xmlns:cr="clr-namespace:ProfileBook.Converters"
+             xmlns:resources="clr-namespace:ProfileBook.Resx"
+             Title="{Binding Title}"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <cr:ItemTappedEventArgsToTapItemConverter x:Key="ItemTappedConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     Text="{x:Static resources:Resource.LogOutToolbarItem}"
+                     Priority="0"
+                     IconImageSource="ic_exit_to_app.png"
+                     Command="{Binding LogOutTapCommand}" />
+        <ToolbarItem Order="Primary"
+                     Text="{x:Static resources:Resource.SettingsToolbarItem}"
+                     Priority="1"
+                     IconImageSource="ic_settings.png"
+                     Command="{Binding SettingsTapCommand}" />
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label x:Name="label"
+               Text="{x:Static resources:Resource.NoProfilesLabel}"
+               TextColor="{x:DynamicResource PrimaryTextColor}"
+               FontSize="36"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               VerticalOptions="CenterAndExpand"
+               IsVisible="False">
+            <Label.Triggers>
+                <DataTrigger TargetType="Label"
+                             Binding="{Binding IsVisible}"
+                             Value="False">
+                    <Setter Property="IsVisible"
+                            Value="True"/>
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+
+        <ListView x:Name="listView"
+                  ItemsSource="{Binding ProfileList}"
+                  HasUnevenRows="True"
+                  SelectionMode="None"
+                  SeparatorVisibility="None"
+                  IsVisible="True">
+            
+            <ListView.Behaviors>
+                <bh:EventToCommandBehavior 
+                    EventName="ItemTapped"
+                    Command="{Binding Path=BindingContext.ItemTapCommand, Source={x:Reference listView}}"
+                    Converter="{StaticResource ItemTappedConverter}"/>
+            </ListView.Behaviors>
+
+            <ListView.Triggers>
+                <DataTrigger TargetType="ListView"
+                             Binding="{Binding Source={x:Reference label}, Path=IsVisible}"
+                             Value="True">
+                    <Setter Property="IsVisible"
+                            Value="False"/>
+                </DataTrigger>
+            </ListView.Triggers>
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="{x:Static resources:Resource.EditContextAction}"
+                                      Command="{Binding Path=BindingContext.UpdateTapCommand, Source={x:Reference listView}}"
+                                      CommandParameter="{Binding .}"/>
+                            <MenuItem Text="{x:Static resources:Resource.DeleteContextAction}"
+                                      Command="{Binding Path=BindingContext.DeleteTapCommand, Source={x:Reference listView}}"
+                                      CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
+
+                        <ViewCell.View>
+
+                            <Grid ColumnDefinitions="0.4*, *"
+                                  Padding="15">
+                                <Image Source="{Binding ImagePath}"
+                                       Margin="10, 0, 5, 0"
+                                       HeightRequest="40"/>
+                                <StackLayout Spacing="10"
+                                             Grid.Column="1"
+                                             VerticalOptions="CenterAndExpand"
+                                             HorizontalOptions="CenterAndExpand"
+                                             Margin="5, 0, 100, 0">
+                                    <Label Text="{Binding NickName}"
+                                           FontAttributes="Bold" 
+                                           FontSize="Medium"
+                                           TextColor="{x:DynamicResource PrimaryTextColor}"/>
+                                    <Label Text="{Binding Name}"
+                                           FontSize="Medium"
+                                           TextColor="{x:DynamicResource PrimaryTextColor}"/>
+                                    <Label Text="{Binding CreationTime}"
+                                           FontSize="Small"
+                                           TextColor="{x:DynamicResource PrimaryTextColor}"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Grid.Row="0" 
+                ImageSource="ic_add.png"
+                BorderColor="{x:DynamicResource OutlineFloatButtonColor}"
+                BorderWidth="5"
+                FontAttributes="None"
+                BackgroundColor="{x:DynamicResource FloatButtonColor}"
+                BorderRadius ="70"
+                TextColor="White"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                WidthRequest="80"
+                HeightRequest="80"
+                Margin="0,0,20,40"
+                Command="{Binding AddEditProfileTapCommand}"/>
+    </Grid>
+</ContentPage>

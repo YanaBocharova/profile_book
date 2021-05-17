@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ProfileBook.Converters"
+             xmlns:resources="clr-namespace:ProfileBook.Resx"
+             x:Class="ProfileBook.View.UserSignUp" 
+             Title="{Binding Title}"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ButtonMultiTriggerConverter x:Key="dataHasBeenEntered" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout  Margin="30" 
+                      VerticalOptions="Center" 
+                      Spacing="15">
+            <Entry x:Name="userLogin" 
+                   Placeholder="{x:Static resources:Resource.LoginText}"
+                   PlaceholderColor="{x:DynamicResource PlaceholderTextColor}"
+                   ClearButtonVisibility="WhileEditing"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Fill"
+                   FontSize="Medium" 
+                   Text="{Binding UserLogin}"
+                   TextColor="{x:DynamicResource PlaceholderTextColor}"/>
+            <Entry x:Name="userPassword" 
+                   Placeholder="{x:Static resources:Resource.PasswordText}" 
+                   PlaceholderColor="{x:DynamicResource PlaceholderTextColor}"
+                   IsPassword="True"
+                   ClearButtonVisibility="WhileEditing"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Fill" 
+                   FontSize="Medium"
+                   Text="{Binding UserPassword}"
+                   TextColor="{x:DynamicResource PrimaryTextColor}"/>
+            <Entry x:Name="confirmUserPassword" 
+                   Placeholder="{x:Static resources:Resource.ConfirmPasswordText}"
+                   PlaceholderColor="{x:DynamicResource PlaceholderTextColor}"
+                   IsPassword="True"
+                   ClearButtonVisibility="WhileEditing"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Fill" 
+                   FontSize="Medium"
+                   Text="{Binding UserConfirmPassword}"
+                   TextColor="{x:DynamicResource PrimaryTextColor}"/> 
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" 
+                     Margin="30">
+            <Button x:Name="signUp" 
+                    Text="{x:Static resources:Resource.SignUpButtonText}" 
+                    TextColor="{x:DynamicResource ButtonTextColor}"
+                    FontSize="Subtitle" 
+                    BackgroundColor="{x:DynamicResource ButtonAuthBackgroundColor}"
+                    BorderWidth="1" 
+                    BorderColor="{x:DynamicResource OutlineFloatButtonColor}" 
+                    IsEnabled="False"
+                    Command="{Binding SignUpButtonTapCommand}">
+
+                <Button.Triggers>
+                    <MultiTrigger TargetType="Button">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding Source={x:Reference userLogin}, 
+                                Path=Text.Length, Converter={StaticResource dataHasBeenEntered}}"
+                                Value="True" />
+                            <BindingCondition Binding="{Binding Source={x:Reference userPassword},
+                                Path=Text.Length, Converter={StaticResource dataHasBeenEntered}}"
+                                Value="True" />
+                            <BindingCondition Binding="{Binding Source={x:Reference confirmUserPassword},
+                                Path=Text.Length, Converter={StaticResource dataHasBeenEntered}}"
+                                Value="True" />
+                        </MultiTrigger.Conditions>
+                        <Setter Property="IsEnabled" 
+                                Value="True" />
+                    </MultiTrigger>
+                </Button.Triggers>
+            </Button>
+        </StackLayout>
+    </Grid>
+</ContentPage>

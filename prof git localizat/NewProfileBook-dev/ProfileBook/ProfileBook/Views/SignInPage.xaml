@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:ProfileBook.Resources"
+             x:Class="ProfileBook.Views.SignInPage"
+             Title="{x:Static resource:Resource.SignInPageTitle}">
+    <ContentPage.Content>
+        <StackLayout Padding="36, 36, 36, 50" HorizontalOptions="FillAndExpand">
+
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Entry Placeholder="{x:Static resource:Resource.Login}" 
+                       Text="{Binding Login}" />
+                <Entry Placeholder="{x:Static resource:Resource.Password}" 
+                       IsPassword="True" 
+                       Text="{Binding Password} "/>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                
+                <Button BackgroundColor="#CC6633"
+                        Text="{x:Static resource:Resource.SignInButton}"
+                        Command="{Binding SignInTapCommand}"
+                        IsEnabled="{Binding EnabledButton}" />
+                
+                <Label HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span TextColor="Blue" 
+                                  TextDecorations="Underline"
+                                  Text="{x:Static resource:Resource.SignUpButton}">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SignUpTapCommand}" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+            </StackLayout>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

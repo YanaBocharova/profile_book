@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popups:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProfileBook.Views.ProfileImagePage"
+             xmlns:popups="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:prism="http://prismlibrary.com">
+
+    <popups:PopupPage.Content>
+
+        <FlexLayout Direction="Row">
+
+            <FlexLayout FlexLayout.Grow="1"/>
+
+            <FlexLayout FlexLayout.Grow="5" 
+                    AlignItems="Center">
+
+                <FlexLayout.GestureRecognizers>
+                    <TapGestureRecognizer  Command="{prism:GoBack}" />
+                </FlexLayout.GestureRecognizers>
+
+                <Image Source="{Binding Image}" FlexLayout.Grow="1"/>
+
+            </FlexLayout>
+
+            <FlexLayout FlexLayout.Grow="1"/>
+
+        </FlexLayout>
+
+        <!--<Image Source="{Binding Image}"/>-->
+
+    </popups:PopupPage.Content>
+
+</popups:PopupPage>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:ProfileBook.Resources"
+             x:Class="ProfileBook.Views.SignUpPage"
+             Title="{x:Static resource:Resource.SignUpPageTitle}">
+    <ContentPage.Content>
+        <StackLayout Padding="36, 36, 36, 50" HorizontalOptions="FillAndExpand">
+
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Entry Placeholder="{x:Static resource:Resource.Login}" 
+                       Text="{Binding Login}" />
+                <Entry Placeholder="{x:Static resource:Resource.Password}" 
+                       IsPassword="True" 
+                       Text="{Binding Password}" />
+                <Entry Placeholder="{x:Static resource:Resource.ConfPassPlaceholder}" 
+                       IsPassword="True" 
+                       Text="{Binding ConfirmPassword}" />
+            </StackLayout>
+
+            <Button BackgroundColor="#CC6633" 
+                    VerticalOptions="CenterAndExpand" 
+                    Text="{x:Static resource:Resource.SignUpButton}"
+                    Command="{Binding SignUpTapCommand}" 
+                    IsEnabled="{Binding EnabledButton}" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

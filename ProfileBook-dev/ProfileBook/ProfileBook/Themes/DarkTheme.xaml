@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProfileBook.Themes.DarkTheme">
+
+    <Color x:Key="PageBackgroundColor">Black</Color>
+    <Color x:Key="NavigationBarColor">#252526</Color>
+    <Color x:Key="SecondaryColor">#2296F3</Color>
+    <Color x:Key="PrimaryTextColor">#F0F0F0</Color>
+    <Color x:Key="SecondaryTextColor">WhiteSmoke</Color>
+    <Color x:Key="ButtonTextColor">Black</Color>
+    <Color x:Key="FloatButtonColor">#252526</Color>
+    <Color x:Key="OutlineFloatButtonColor">#565656</Color>
+    <Color x:Key="ButtonAuthBackgroundColor">DarkSeaGreen</Color>
+    <Color x:Key="LinkTextColor">#0098FF</Color>
+    <Color x:Key="EditorBackgroundColor">#232323</Color>
+    <Color x:Key="PlaceholderTextColor">WhiteSmoke</Color>
+
+</ResourceDictionary>

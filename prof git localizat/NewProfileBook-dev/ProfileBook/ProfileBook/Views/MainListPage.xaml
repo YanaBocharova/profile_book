@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:ProfileBook.Resources"
+             x:Class="ProfileBook.Views.MainListPage"
+             x:Name="profile"
+             Title="{x:Static resource:Resource.MainListPageTitle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_exit_to_app.png" 
+                     Command="{Binding SignOutTapCommand}" />
+        <ToolbarItem IconImageSource="ic_settings.png" 
+                     Command="{Binding SettingsTapCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0">
+                <ListView ItemsSource="{Binding ProfileList}"
+                          SelectedItem="{Binding SelectedItem}"
+                          HasUnevenRows="True"
+                          SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="{x:Static resource:Resource.EditButton}"
+                                              Command="{Binding Path=BindingContext.EditProfileTapCommand, Source={x:Reference profile}}"
+                                              CommandParameter="{Binding .}" />
+                                    <MenuItem Text="{x:Static resource:Resource.DeleteButton}"
+                                              Command="{Binding Path=BindingContext.DeleteProfileTapCommand, Source={x:Reference profile}}"
+                                              CommandParameter="{Binding .}" />
+                                </ViewCell.ContextActions>
+
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="FillAndExpand">
+
+                                        <ImageButton HeightRequest="100"
+                                               WidthRequest="100"
+                                               BackgroundColor="Transparent"
+                                               Source="{Binding Image}"
+                                               Command="{Binding Path=BindingContext.OpenImageTapCommand, Source={x:Reference profile}}"
+                                               CommandParameter="{Binding .}" />
+                                        
+                                        <StackLayout VerticalOptions="Center" 
+                                                     Margin="10, 0, 0, 0">
+                                            <Label FontAttributes="Bold"
+                                                   Text="{Binding NickName}" />
+                                            <Label Text="{Binding Name}" />
+                                            <Label Text="{Binding Date}" />
+                                        </StackLayout>
+                                        
+                                    </StackLayout>
+                                </ViewCell.View>
+                                
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+
+            <Label HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Text="No profiles added"
+                   IsVisible="{Binding HaveNoProfiles}" />
+
+            <ImageButton Grid.Row="0" WidthRequest="85"
+                         HorizontalOptions="End" VerticalOptions="End"
+                         BorderWidth="10" CornerRadius="100"
+                         Margin="0,0,20,40" Padding="30"
+                         Scale="0.8" BorderColor="#2B3C3C"
+                         BackgroundColor="#1E90FF"
+                         Source="ic_add.png"
+                         Command="{Binding AddProfileTapCommand}"/>
+
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>

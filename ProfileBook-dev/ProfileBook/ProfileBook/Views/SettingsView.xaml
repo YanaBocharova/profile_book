@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:ProfileBook.Resx"
+             x:Class="ProfileBook.Views.SettingsView"
+             Title="{Binding Title}"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <Grid Margin="20, 30, 0, 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.6*" />
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.2*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0"
+                   Text="{x:Static resources:Resource.DarkTheme}"
+                   TextColor="{x:DynamicResource PrimaryTextColor}"
+                   FontSize="24"
+                   VerticalOptions="Start"/>
+            <Switch x:Name="switch"
+                    Grid.Column="1"
+                    IsToggled="{Binding IsToogled}"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="StartAndExpand"
+                    Margin="0, 4, 30, 0">
+            </Switch>
+            <Label Grid.Column="2"
+                   Text="{x:Static resources:Resource.DarkThemeOff}"
+                   TextColor="{x:DynamicResource PrimaryTextColor}"
+                   VerticalOptions="StartAndExpand"
+                   Margin="0, 3, 0, 0"
+                   FontSize="20">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label"
+                                 Binding="{Binding Source={x:Reference switch}, Path=IsToggled}"
+                                 Value="True">
+                        <Setter Property="Text"
+                                Value="{x:Static resources:Resource.DarkThemeOn}" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+        </Grid>
+
+        <StackLayout Grid.Row="1"
+                     RadioButtonGroup.GroupName="SortSelect"
+                     RadioButtonGroup.SelectedValue="{Binding SortSelection}">
+            <Label Text="{x:Static resources:Resource.SortListLabel}"
+                   FontSize="32"
+                   TextColor="{x:DynamicResource PrimaryTextColor}"/>
+            <RadioButton Content="{x:Static resources:Resource.RadioName}"
+                         Value="Name"
+                         TextColor="{x:DynamicResource PrimaryTextColor}"/>
+            <RadioButton Content="{x:Static resources:Resource.RadioNickName}"
+                         Value="NickName"
+                         TextColor="{x:DynamicResource PrimaryTextColor}"/>
+            <RadioButton Content="{x:Static resources:Resource.RadioCreation}"
+                         Value="Date creation"
+                         TextColor="{x:DynamicResource PrimaryTextColor}"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

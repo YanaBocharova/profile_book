@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddProfileTitlePage" xml:space="preserve">
+    <value>Добавление профиля</value>
+  </data>
+  <data name="ALERT_ADD_EDIT_PROFILE" xml:space="preserve">
+    <value>Поля NickName и Name должны быть заполнены</value>
+  </data>
+  <data name="AUTHETICATION_SUCCESS" xml:space="preserve">
+    <value>Поздравление!!!! Аккаунт успешно создан</value>
+  </data>
+  <data name="ConfirmPasswordText" xml:space="preserve">
+    <value>Подтвердите пароль</value>
+  </data>
+  <data name="CONFIRM_CANCEL" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="CONFIRM_OK" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="DarkTheme" xml:space="preserve">
+    <value>Тёмная тема</value>
+  </data>
+  <data name="DarkThemeOff" xml:space="preserve">
+    <value>откл</value>
+  </data>
+  <data name="DarkThemeOn" xml:space="preserve">
+    <value>вкл</value>
+  </data>
+  <data name="DeleteContextAction" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="DELETE_PROFILE_QUESTION" xml:space="preserve">
+    <value>Вы действительно хотите удалить этот профиль?</value>
+  </data>
+  <data name="DescriptionText" xml:space="preserve">
+    <value>Примечания</value>
+  </data>
+  <data name="EditContextAction" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="EditProfileTitlePage" xml:space="preserve">
+    <value>Редактирование профиля</value>
+  </data>
+  <data name="GET_IMAGE_ACTION" xml:space="preserve">
+    <value>Открыть галерею</value>
+  </data>
+  <data name="IMAGE_PROFILE_ACTION" xml:space="preserve">
+    <value>Выберете действие</value>
+  </data>
+  <data name="INVALID_LOGIN" xml:space="preserve">
+    <value>Неверный логин. Логин должен содержать от 4 до 16 символов и не должен начинаться с цифры</value>
+  </data>
+  <data name="INVALID_LOGIN_OR_PASSWORD" xml:space="preserve">
+    <value>Неверный логин или пароль</value>
+  </data>
+  <data name="INVALID_PASSWORD" xml:space="preserve">
+    <value>Неверный пароль. Пароль должен содержать от 8 до 16 символов, должен содержать как минимум одну заглавную букву, одну строчную букву и одну цифру.</value>
+  </data>
+  <data name="LoginText" xml:space="preserve">
+    <value>Логин</value>
+  </data>
+  <data name="LOGIN_TAKEN" xml:space="preserve">
+    <value>Этот логин уже занят. Придумайте другой</value>
+  </data>
+  <data name="LogOutToolbarItem" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="MainListTitlePage" xml:space="preserve">
+    <value>Список профилей</value>
+  </data>
+  <data name="NameText" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="NicknameText" xml:space="preserve">
+    <value>Ник</value>
+  </data>
+  <data name="NoProfilesLabel" xml:space="preserve">
+    <value>Профили не добавлены</value>
+  </data>
+  <data name="PasswordText" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="PASSWORD_MISMATCH" xml:space="preserve">
+    <value>Несоответствие паролей. Повторно введите пароли</value>
+  </data>
+  <data name="RadioCreation" xml:space="preserve">
+    <value>Дате создания</value>
+  </data>
+  <data name="RadioName" xml:space="preserve">
+    <value>Имени</value>
+  </data>
+  <data name="RadioNickName" xml:space="preserve">
+    <value>Нику</value>
+  </data>
+  <data name="SaveToolbatItem" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="SettingsTitlePage" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="SettingsToolbarItem" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="SignInButtonText" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="SignInTitlePage" xml:space="preserve">
+    <value>Вход в систему</value>
+  </data>
+  <data name="SignUpButtonText" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="SignUpTitlePage" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="SortListLabel" xml:space="preserve">
+    <value>Сортировать список по</value>
+  </data>
+  <data name="TAKE_IMAGE_ACTION" xml:space="preserve">
+    <value>Открыть камеру</value>
+  </data>
+</root>

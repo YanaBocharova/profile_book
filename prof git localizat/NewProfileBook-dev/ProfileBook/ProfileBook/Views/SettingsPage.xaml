@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:ProfileBook.Resources"
+             x:Class="ProfileBook.Views.SettingsPage"
+             Title="{x:Static resource:Resource.SettingsPageTitle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_save.png" 
+                     Command="{Binding SaveSettingsTapCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <FlexLayout Direction="Row">
+
+            <FlexLayout FlexLayout.Grow="1"></FlexLayout>
+
+            <FlexLayout FlexLayout.Grow="10" Direction="Column">
+
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <Label Text="{x:Static resource:Resource.SortOptions}" 
+                           VerticalTextAlignment="Center"/>
+                </FlexLayout>
+
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <RadioButton GroupName="Sort" IsChecked="{Binding IsName}" />
+                    <Label Text="{x:Static resource:Resource.Name}" 
+                           VerticalTextAlignment="Center"/>
+                </FlexLayout>
+
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <RadioButton GroupName="Sort" IsChecked="{Binding IsNickName}" />
+                    <Label Text="{x:Static resource:Resource.NickName}" 
+                           VerticalTextAlignment="Center" />
+                </FlexLayout>
+
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <RadioButton GroupName="Sort" IsChecked="{Binding IsDate}" />
+                    <Label Text="{x:Static resource:Resource.Date}" VerticalTextAlignment="Center" />
+                </FlexLayout>
+
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <Label Text="{x:Static resource:Resource.ThemeOptions}" VerticalTextAlignment="Center"/>
+                </FlexLayout>
+
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <RadioButton GroupName="Theme" IsChecked="True" />
+                    <Label Text="{x:Static resource:Resource.LightTheme}"
+                           VerticalTextAlignment="Center"/>
+                </FlexLayout>
+
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <RadioButton GroupName="Theme" />
+                    <Label Text="{x:Static resource:Resource.DarkTheme}"
+                           VerticalTextAlignment="Center"/>
+                </FlexLayout>
+
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <Label Text="{x:Static resource:Resource.LanguageOptions}"
+                           VerticalTextAlignment="Center"/>
+                </FlexLayout>
+
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <RadioButton GroupName="Language" IsChecked="{Binding IsEnglish}" />
+                    <Label Text="{x:Static resource:Resource.English}"
+                           VerticalTextAlignment="Center"/>
+                </FlexLayout>
+
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <RadioButton GroupName="Language" IsChecked="{Binding IsRussian}" />
+                    <Label Text="{x:Static resource:Resource.Russian}"
+                           VerticalTextAlignment="Center"/>
+                </FlexLayout>
+
+            </FlexLayout>
+
+            <FlexLayout FlexLayout.Grow="1"></FlexLayout>
+
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>
